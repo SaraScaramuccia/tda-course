@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-09-05 Tue 11:53 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Computational Topology and Topological Data Analysis</title>
+<meta name="author" content="Sara Scaramuccia" />
+<!-- <meta name="generator" content="Org Mode" /> -->
+<link rel="stylesheet" href="css/main.css"></link><link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet"></link><script src="/js/collapsibility.js"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Computational Topology and Topological Data Analysis</h1>
+<p>
+This is a course for PhD students. Master students are also allowed and encouraged to participate.
+The main topic of the course is to introduce computational aspects in applied topology, computational topology, in order to provide the main mathematical ingredients to the the rather new field of research called Topological Data Analysis - TDA.
+</p>
+
+<p>
+TDA aims at capturing the shape of data as a robust and multiscale descriptor to be integrated in data handling: classification, comparison, multidimensional reduction, etc ...
+</p>
+
+<p>
+First, we deal with the constructions from data to simplicial complexes according to the kind of data: filtrations of data, point clouds, networks, and topological spaces. For each construction, we underline the possible dependence on a fixed scale parameter. Secondly, we introduce the necessary algebraic structures capturing topological informations out of a simplicial complex at a fixed scale, namely the simplicial homology groups. The so-obtained linear structures are then integrated into the multiscale framework of persistent homology where the entire persistence information is encoded in algebraic terms and the most advantageous persistence summaries available in the literature are discussed. Finally, we introduce the necessary metrics in order to state properties of stability of the introduced multiscale summaries under perturbations of input data. At the end, we give an overview of applications of persistent homology as well as a review of the existing tools in the broader area of Topological Data Analysis (TDA).
+</p>
+
+<div id="outline-container-org8568e8d" class="outline-2">
+<div class="row text-center pad-top">
+	<!-- <div class="col-md-5 pad-top"> -->
+                <img src="img/stag-terrain.png" class="img-responsive " alt="" width="42%" height="38%" />
+
+                <img src="img/topreg.png" class="img-responsive " alt="" width="45%" height="50%" />
+
+                <figcaption>
+                	<p> Left: a terrain rendering with simplified critical points. 
+                	<a href="https://diglib.eg.org/bitstream/handle/10.2312/stag20161358/001-010.pdf">Fugacci et al., STAG, 2016 .</a>
+                	</p>
+                	<p> Right: a decision boundary simplified by minimizing connected components.
+                	<a href="http://proceedings.mlr.press/v89/chen19g/chen19g.pdf">Chao, et al. PMLR, 2019.</a>
+                	</p>
+                 </figcaption>
+
+                <img src="img/spiral.png" class="img-responsive " alt="" width="35%" height="50%" />
+
+                <img src="img/topclustering.png" class="img-responsive " alt="" width="35%" height="50%" />
+
+                <figcaption>
+                	<p> Left: a big point cloud with a noisy shaped 2D spiral. 
+                	</p>
+                	<p> Right: a fuzzy clustering detecting the 2D-spiral with
+                	<a href="https://geometrica.saclay.inria.fr/data/ToMATo/">ToMATo algorithm (Topological Data Analysis-based clustering algorithm)</a>
+                	</p>
+                 </figcaption>
+    <!-- </div> -->
+    <!-- <div class="col-md-7 pad-top"> -->
+                
+    <!-- </div> -->
+</div>
+</div>
+
+
+<!-- <div id="outline-container-org8568e8d" class="outline-2">
+<h2 id="org8568e8d">Announcements</h2>
+<div class="outline-text-2" id="text-org8568e8d">
+<ol class="org-ol">
+<li>The final exam will be on Nov 17 and 18 (with the same rules as the midterm).</li>
+<li>Here are some <a href="AGFinalPractice.pdf">practice questions</a> for the final.</li>
+</ol>
+</div>
+</div> -->
+
+<!-- <div id="outline-container-orgaab49be" class="outline-2">
+<h2 id="orgaab49be">Links</h2>
+<div class="outline-text-2" id="text-orgaab49be">
+<ul class="org-ul">
+<li>Lectures: 1 (Monday 10&#x2013;11, Moran G007), 2 (Wed 10&#x2013;11, Moran G008), 3 (Thu 11&#x2013;12, HN 4.41), 4 (Fri 12&#x2013;13, Moran G007)</li>
+<li>Zoom lecture: <a href="https://anu.zoom.us/j/87920733031">https://anu.zoom.us/j/87920733031</a> (you know the password)</li>
+<li>Zoom office hours: Thursday 10&#x2013;11 (same room as the lecture), continuing into Thursday&rsquo;s class.</li>
+<li>Discussion forum: <a href="https://ag2021.zulipchat.com">https://ag2021.zulipchat.com</a>.</li>
+<li>The assignments will be due on Gradescope.</li>
+</ul>
+</div>
+</div>
+ -->
+<div id="outline-container-org505f4b2" class="outline-2">
+<h2 id="org505f4b2">References</h2>
+<!-- <div class="outline-text-2" id="text-org505f4b2">
+<ol class="org-ol">
+<li><a href="notes/">Our own notes</a></li>
+<li><a href="https://link.springer.com/book/10.1007/978-3-642-37956-7">Basic Algebraic Geometry, Part I by I. Shafarevich</a></li>
+<li><a href="https://www.mathematik.uni-kl.de/~gathmann/class/alggeom-2002/alggeom-2002.pdf">Online notes by A. Gathmann</a></li>
+</ol>
+</div>
+<div id="outline-container-org0326e83" class="outline-3">
+<h3 id="org0326e83">Resources for mathematical writing</h3>
+<div class="outline-text-3" id="text-org0326e83">
+<ol class="org-ol">
+<li><a href="https://www.math.ucla.edu/~pak/papers/how-to-write1.pdf">How to write a clear math paper by Igor Pak.</a></li>
+<li><a href="https://jmlr.csail.mit.edu/reviewing-papers/knuth_mathematical_writing.pdf">Mathematical Writing by Donald Knuth et al.</a></li>
+</ol>
+</div>
+</div>
+ --></div>
+
+<div id="outline-container-orgf115ade" class="outline-2">
+<h2 id="orgf115ade">Plan</h2>
+<div class="outline-text-2" id="text-orgf115ade">
+<p>
+This is a tentative outline of the course, subject to change.
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Lecture</th>
+<th scope="col" class="org-left">Topic</th>
+<!-- <th scope="col" class="org-left">Assessment</th> -->
+</tr>
+</thead>
+<tbody>
+<tr>
+
+<td class="org-right">1</td>
+<td class="org-left"><a href="classwork02.pdf">Introduction: what is Computational Topology? How to use topology to analyze data? Examples and goals.</a> Lecture 1: <a href="">Video</a>/<a href="">Board</a>, Lecture 2: <a href="">Video</a>/<a href="">Board</a></td>
+<!-- <td class="org-left">&#xa0;</td> -->
+</tr>
+
+
+<!-- <td class="org-right">1</td>
+<td class="org-left">What is algebraic geometry? The first examples: algebraic subsets of affine space. Lecture 1: <a href="https://web.microsoftstream.com/video/cf234444-df4b-4b65-8016-a3c1b7539891?channelId=cd4289e5-e630-458c-8ea0-2bd2632faea0">Video</a>/<a href="notes/2021-07-27.pdf">Board</a>, Lecture 2: <a href="https://web.microsoftstream.com/video/9baf2139-0fa8-4419-89f2-aabff250de07?channelId=cd4289e5-e630-458c-8ea0-2bd2632faea0">Video</a>/<a href="notes/2021-07-08.pdf">Board</a></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+ -->
+<tr>
+<td class="org-right">2</td>
+<td class="org-left"><a href="classwork02.pdf">Topological Invariants and Discrete Shapes</a>: Lecture 1: <a href="">Video</a>/<a href="">Board</a>, Lecture 2: <a href="">Video</a>/<a href="">Board</a></td>
+<!-- <td class="org-left">&#xa0;</td> -->
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left"><a href="classwork03.pdf">Simplicial and Cellular Homology</a>: Lecture 1: <a href="">Video</a>/<a href="">Board</a>, Lecture 2: Persistence Pairs <a href="">Video</a>/<a href="">Board</a></td>
+<!-- <td class="org-left"></td> -->
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left"><a href="classwork04.pdf">Persistent Homology</a>: Lecture 1: <a href="">Video</a>/<a href="">Board</a>, Lecture 2: <a href="">Video</a>/<a href="notes/2021-08-20.pdf">Board</a></td>
+<!-- <td class="org-left">&#xa0;</td> -->
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-left"><a href="classwork05.pdf">Level set and zig-zag Persistence</a>: Lecture 1: <a href="">Video</a>/<a href="">Board</a>, Lecture 2: <a href="">Video</a>/<a href="">Board</a></td>
+<!-- <td class="org-left"></td> -->
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-left"><a href="classwork06.pdf">Discrete Morse Theory and Persistent Homology</a>: Lecture 1: <a href="">Video</a>/<a href="">Board</a>, Lecture 2: <a href="">Video</a>/<a href="">Board</a></td>
+<!-- <td class="org-left">&#xa0;</td> -->
+</tr>
+
+<tr>
+<td class="org-right">7</td>
+<td class="org-left"><a href="classwork07.pdf">Multiparameter Persistent Homology</a>: Lecture 1: <a href="">Video</a>, Lecture 2: overview on other TDA open perspectives<a href="">Video</a>/<a href="">Board</a></td>
+<!-- <td class="org-left"></td> -->
+</tr>
+
+<tr>
+<td class="org-right">8</td>
+<td class="org-left"><a href="classwork08.pdf">Python Lab</a>: Lecture 1: Classifying via TDA<a href="">Video</a>/<a href="">Board</a>, Lecture 2: <a href="">Video</a>/<a href=""></a></td>
+<!-- <td class="org-left"></td> -->
+</tr>
+
+<tr>
+<td class="org-right">9</td>
+<td class="org-left"><a href="classwork09.pdf">Student Seminars</a>: Lecture 1: <a href="">Video</a>/<a href="">Board</a>, Lecture 2: <a href="">Video</a>/<a href="">Board</a></td>
+<!-- <td class="org-left">&#xa0;</td> -->
+</tr>
+
+<tr>
+<td class="org-right">10</td>
+<td class="org-left"><a href="classwork09.pdf">Student Seminars</a>: Lecture 1: <a href="">Video</a>/<a href="">Board</a>, Lecture 2: <a href="">Video</a>/<a href="">Board</a></td>
+<!-- <td class="org-left">&#xa0;</td> -->
+</tr>
+
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">Q&amp;A session 1: <a href="https://web.microsoftstream.com/video/2dc19fb8-ff07-4eca-82cb-3ec8069ed1f4">Video</a>, Q&amp;A session 2 <a href="https://web.microsoftstream.com/video/86ccd471-e823-4267-a44e-a84f1bc09062">Video</a>/<a href="notes/2021-10-28.pdf">Board</a></td>
+<!-- <td class="org-left">&#xa0;</td> -->
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org4f6558d" class="outline-2">
+<h2 id="org4f6558d">Pre-requisites</h2>
+<div class="outline-text-2" id="text-org4f6558d">
+<p>
+Geometry 1 and 2, Algebra 1 and 2.
+</p>
+
+<p>
+Computational Topology and TDA are deeply rooted into many areas, so some background in algebraic topology, computational algebra, numerical analysis, and machine learning would be helpful, but not required. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9d95551" class="outline-2">
+<h2 id="org9d95551">Assessment</h2>
+<div class="outline-text-2" id="text-org9d95551">
+<p>
+The final mark is based on:
+</p>
+<ol class="org-ol">
+<li> A final presentation by the student of a research paper in the field of computational topology or TDA</li>
+</ol>
+<p>
+The topic will be proposed by the student and approved by the teacher.
+</p>
+</div>
+
+<div id="outline-container-org6421690" class="outline-3">
+<h3 id="org6421690">Classwork</h3>
+<div class="outline-text-3" id="text-org6421690">
+<p>
+The format of our classwork will be as follows. There will be two meetings per week from January to February. Seven meetings will be frontal lectures. One meeting will be a Python Lab. The last two meetings will be left for the students' presentations.
+</p>
+</div>
+</div>
+</div>
+
+<!-- <div id="outline-container-org3f91a64" class="outline-2">
+<h2 id="org3f91a64">Policies</h2>
+<div class="outline-text-2" id="text-org3f91a64">
+</div>
+<div id="outline-container-org3b8e410" class="outline-3">
+<h3 id="org3b8e410">Late submission</h3>
+<div class="outline-text-3" id="text-org3b8e410">
+<p>
+I will not accept any late submissions, except for medical emergencies with a medical certificate.
+To compensate for this strict policy, I will drop the lowest among the (homework+classwork) marks.
+</p>
+</div>
+</div>
+ -->
+<div id="outline-container-orgeb125cc" class="outline-3">
+<h3 id="orgeb125cc">Collaboration</h3>
+<div class="outline-text-3" id="text-orgeb125cc">
+<p>
+Students are encouraged to cohoperate with others, even to share a topic to be presented in the final seminar. Nonetheless, each student has to present its own part. All the names of students involved should be explicitly mentioned in the presentation. This is a matter of academic honesty. 
+</p>
+</div>
+</div>
+</div>
+
+<!-- <div id="outline-container-orgc3c19ce" class="outline-2">
+<h2 id="orgc3c19ce">Miscellenous</h2>
+<div class="outline-text-2" id="text-orgc3c19ce">
+<blockquote>
+<p>
+Algebra is nothing but written geometry; geometry is nothing but pictured algebra.  
+&#x2014; Sophie Germain (1776&#x2013;1831)
+</p>
+</blockquote>
+<blockquote>
+<p>
+No attention should be paid to the fact that algebra and geometry are different in appearance.  
+&#x2014; Omar Khayyam (1048&#x2013;1131)
+</p>
+</blockquote>
+</div>
+</div>
+</div> -->
+<div id="postamble" class="status">
+Site modified from <a href="https://deopurkar.github.io/teaching/ag2021/">https://deopurkar.github.io/teaching/ag2021/</a>  Last modified: 2022-09-18 Mon 15:55. 
+</div>
+</body>
+</html>
